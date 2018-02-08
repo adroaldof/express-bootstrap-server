@@ -23,5 +23,6 @@
 
 !.editorconfig
 !.eslintrc
+!.eslintignore
 !.gitignore
 !.nvmrc
