@@ -38,8 +38,9 @@ function init (app) {
   app.use('/api', routes);
 
   // Request logger
-  app.use(morgan('combined'));
-
+  if (config.env !== 'test') {
+    app.use(morgan('combined'));
+  }
   // Enable content API logger when environment is development
   /* istanbul ignore next */
   if (config.env === 'development') {
@@ -76,7 +77,7 @@ function notImplemented (req, res) {
   const body = {
     path: req.originalUrl,
     status: 'not-implemented',
-    date: new Date(),
+    now: new Date(),
   };
 
   return res.status(501).send(body);
