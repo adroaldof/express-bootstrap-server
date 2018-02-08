@@ -5,7 +5,6 @@ import httpStatus from 'http-status';
 import morgan from 'morgan';
 import methodOverride from 'method-override';
 
-import APIError from './helpers/errors/APIError';
 import config from '../config/env';
 import logger from './logger';
 import routes from './routes';
@@ -28,7 +27,7 @@ function init (app) {
   // Disable 'X-Powered-By' header in response
   app.disable('x-powered-by');
 
-  // If error is not an instanceOf APIError, convert it
+  // Access headers
   /* istanbul ignore next */
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -41,10 +40,10 @@ function init (app) {
   // Error handler, send stacktrace only during development
   app.use((error, req, res, next) => { // eslint-disable-line no-unused-vars
     return res.status(error.status)
-    .json({
-      message: (error.isPublic) ? error.message : httpStatus[error.status],
-      stack: (config.env === 'development') ? error.stack : {}
-    });
+      .json({
+        message: (error.isPublic) ? error.message : httpStatus[error.status],
+        stack: (config.env === 'development') ? error.stack : {},
+      });
   });
 
   // Mount all api routes on /api path
@@ -68,7 +67,6 @@ export default init;
 
 
 function notImplemented (req, res) {
-
   const body = {
     path: req.originalUrl,
     status: 'not-implemented',

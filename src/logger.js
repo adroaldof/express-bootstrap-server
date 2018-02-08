@@ -8,8 +8,8 @@ const winstonInstance = new (winston.Logger)({
       json: true,
       colorize: true,
       level: 'info',
-    })
-  ]
+    }),
+  ],
 });
 
 const logger = expressWinston.logger({
@@ -18,6 +18,6 @@ const logger = expressWinston.logger({
   meta: true,
   msg: 'HTTP {{req.method}} {{req.url}} {{res.statusCode}} {{res.responseTime}}ms',
   winstonInstance,
-})
+});
 
 export default logger;
