@@ -29,22 +29,10 @@ function init (app) {
 
   // Access headers
   /* istanbul ignore next */
-  app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-
-    return next();
-  });
+  app.use(setHeaders);
 
   // Error handler, send stacktrace only during development
-  app.use((error, req, res, next) => { // eslint-disable-line no-unused-vars
-    return res.status(error.status)
-      .json({
-        message: (error.isPublic) ? error.message : httpStatus[error.status],
-        stack: (config.env === 'development') ? error.stack : {},
-      });
-  });
+  app.use(errorHandler);
 
   // Mount all api routes on /api path
   app.use('/api', routes);
@@ -66,6 +54,24 @@ function init (app) {
 export default init;
 
 
+function setHeaders (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+  return next();
+}
+
+
+function errorHandler (error, req, res, next) { // eslint-disable-line no-unused-vars
+  return res.status(error.status)
+    .json({
+      message: (error.isPublic) ? error.message : httpStatus[error.status],
+      stack: (config.env === 'development') ? error.stack : {},
+    });
+}
+
+
 function notImplemented (req, res) {
   const body = {
     path: req.originalUrl,
@@ -73,5 +79,5 @@ function notImplemented (req, res) {
     date: new Date(),
   };
 
-  return res.send(body).status(501);
+  return res.status(501).send(body);
 }
