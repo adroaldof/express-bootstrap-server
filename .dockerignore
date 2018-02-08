@@ -1,29 +1,17 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-
 ###############################################################################
 # Ignore these directories
 ###############################################################################
 
-/node_modules
+data/
+logs/
+node_modules/
 
 
 ###############################################################################
 # Ignore these files
 ###############################################################################
 
-*.log
-*~
-.*
+.editorconfig
+.gitignore
+docker-compose.yml
 
-
-###############################################################################
-# Accept these files
-###############################################################################
-
-!.dockerignore
-!.editorconfig
-!.eslintignore
-!.eslintrc
-!.gitignore
-!.nvmrc

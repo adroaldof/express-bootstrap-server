@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    build: '.'
+    container_name: 'generic-express-api'
+    command: 'npm start'
+    ports:
+      - '3000:3000'
+    environment:
+      APP_HOST: 'localhost'
+      APP_PORT: '3000'
+      NODE_ENV: 'development'
+    volumes:
+      - './:/usr/src/app'
