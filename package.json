@@ -7,7 +7,9 @@
   "scripts": {
     "lint": "node_modules/.bin/esw --color --no-ignore src/",
     "lint:watch": "npm run lint -- --watch",
-    "start": "supervisor --watch src -- -r 'babel-register' ./src"
+    "start": "supervisor --watch src -- -r 'babel-register' ./src",
+    "test": "NODE_ENV=test mocha --require babel-core/register --timeout 30000 --report src --slow 2 --recursive --watch-extensions .spec.js ./src",
+    "test:watch": "npm run test -- --watch --bail ./src"
   },
   "babel": {
     "plugins": [
@@ -30,9 +32,14 @@
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-watch": "^3.1.3"
+    "eslint-watch": "^3.1.3",
+    "mocha": "^5.0.0",
+    "superagent-defaults": "^0.1.14",
+    "supertest": "^3.0.0"
   }
 }
