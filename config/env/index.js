@@ -1,6 +1,6 @@
 import path from 'path';
 
-
+/* istanbul ignore next */
 const env = process.env.NODE_ENV || 'development';
 const root = path.join(__dirname, '/../..');
 

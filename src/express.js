@@ -38,6 +38,7 @@ function init (app) {
   app.use('/api', routes);
 
   // Request logger
+  /* istanbul ignore next */
   if (config.env !== 'test') {
     app.use(morgan('combined'));
   }
@@ -63,8 +64,8 @@ function setHeaders (req, res, next) {
   return next();
 }
 
-
-function errorHandler (error, req, res, next) { // eslint-disable-line no-unused-vars
+/* istanbul ignore next */
+function errorHandler (error, req, res, next) { // eslint-disable-line no-used-vars
   return res.status(error.status)
     .json({
       message: (error.isPublic) ? error.message : httpStatus[error.status],
