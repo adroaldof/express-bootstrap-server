@@ -7,11 +7,14 @@
   "scripts": {
     "coverage": "NODE_ENV=test nyc --reporter=text-summary --reporter=text mocha --require babel-core/register --recursive --watch-extensions .spec.js ./src",
     "coverage:html": "NODE_ENV=test nyc --reporter=text-summary --reporter=html mocha --require babel-core/register --recursive --watch-extensions .spec.js ./src",
-    "lint": "node_modules/.bin/esw --color --no-ignore src/",
+    "lint": "esw --color --no-ignore src/",
     "lint:watch": "npm run lint -- --watch",
+    "migrate:make": "knex --debug --knexfile $(pwd)/config/env/knex-config.js migrate:make",
+    "migrate:run": "knex --knexfile='./config/env/knex-config.js' migrate:latest",
+    "seed:make": "knex --knexfile config/env/knex-config.js seed:make",
+    "seed:run": "knex --knexfile config/env/knex-config.js seed:run",
     "start": "supervisor --watch src -- -r 'babel-register' ./src",
     "test": "NODE_ENV=test mocha --require babel-core/register --timeout 30000 --report src --slow 2 --recursive --watch-extensions .spec.js ./src",
-    "test:watch": "npm run test -- --watch --bail ./src"
   },
   "babel": {
     "plugins": [
@@ -26,8 +29,10 @@
     "express": "^4.16.2",
     "express-winston": "^2.4.0",
     "http-status": "^1.0.1",
+    "knex": "^0.14.3",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
+    "pg": "^7.4.1",
     "supervisor": "^0.12.0",
     "winston": "^2.4.0"
   },
