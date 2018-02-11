@@ -14,7 +14,7 @@
     "seed:make": "knex --knexfile config/knex-config.js seed:make",
     "seed:all": "knex --knexfile config/knex-config.js seed:run",
     "start": "supervisor --watch src -- -r 'babel-register' ./src",
-    "test": "NODE_ENV=test mocha --require babel-core/register --timeout 30000 --report src --slow 2 --recursive --watch-extensions .spec.js ./src",
+    "test": "NODE_ENV=test mocha --require babel-core/register --exit --report src --slow 2 --recursive --watch-extensions .spec.js ./src",
     "test:watch": "npm run test -- --watch --bail ./spec"
   },
   "babel": {
