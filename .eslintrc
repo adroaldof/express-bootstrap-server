@@ -3,7 +3,8 @@
   "parser": "babel-eslint",
   "env": {
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
 	"rules": {
 	  "no-use-before-define": [2, "nofunc"],
