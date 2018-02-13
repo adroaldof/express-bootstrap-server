@@ -8,7 +8,7 @@ function validate (data, schema, options = {}) {
 
 export function validateId (data) {
   const schema = {
-    id: joi.number().integer().min(0),
+    id: joi.number().integer().min(1),
   };
 
   return validate(data, schema, stripUnknown);
