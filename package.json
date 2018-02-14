@@ -19,7 +19,8 @@
   },
   "babel": {
     "plugins": [
-      "transform-es2015-modules-commonjs"
+      "transform-es2015-modules-commonjs",
+      "transform-object-rest-spread"
     ]
   },
   "dependencies": {
@@ -41,6 +42,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "eslint": "^4.17.0",
