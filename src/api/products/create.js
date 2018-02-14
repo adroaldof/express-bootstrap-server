@@ -1,13 +1,13 @@
 import queries from '../../queries';
 import { logger } from '../../helpers';
-import { validateProduct } from './validators';
+import { validateProductCreate } from './validators';
 
 
 export default async function create (req, res) {
   const { body } = req;
   let created;
 
-  const { error, value } = validateProduct(body);
+  const { error, value } = validateProductCreate(body);
 
   if (error) {
     const errors = error.details.map(({ message }) => message);

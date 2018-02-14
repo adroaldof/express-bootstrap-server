@@ -15,7 +15,7 @@ export function validateId (data) {
 }
 
 
-export function validateProduct (data) {
+export function validateProductCreate (data) {
   const schema = {
     barCode: joi.string(),
     description: joi.string(),
