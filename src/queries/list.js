@@ -1,9 +1,9 @@
-import knex from '../../config/knex';
+import { queryBuilder } from '../../config';
 
 
 export default async function list (table) {
   try {
-    const query = await knex(table);
+    const query = await queryBuilder(table);
 
     return query;
   } catch (error) {

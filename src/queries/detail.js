@@ -1,8 +1,8 @@
-import knex from '../../config/knex';
+import { queryBuilder } from '../../config';
 
 
 export default async function detail (table, id) {
-  const detailQuery = knex(table)
+  const detailQuery = queryBuilder(table)
     .where({ id })
     .first();
 

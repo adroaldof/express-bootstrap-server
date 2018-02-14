@@ -1,11 +1,12 @@
-import knex from '../../config/knex';
+import { queryBuilder } from '../../config';
+
 
 export default async function create (table, data) {
-  const [id] = await knex(table)
+  const [id] = await queryBuilder(table)
     .insert(data)
     .returning('id');
 
-  const created = await knex(table)
+  const created = await queryBuilder(table)
     .where({ id })
     .first();
 

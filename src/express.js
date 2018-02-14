@@ -5,7 +5,7 @@ import httpStatus from 'http-status';
 import morgan from 'morgan';
 import methodOverride from 'method-override';
 
-import config from '../config/env';
+import { env } from '../config';
 import logger from './logger';
 import routes from './routes';
 
@@ -39,12 +39,12 @@ function init (app) {
 
   // Request logger
   /* istanbul ignore next */
-  if (config.env !== 'test') {
+  if (env !== 'test') {
     app.use(morgan('combined'));
   }
   // Enable content API logger when environment is development
   /* istanbul ignore next */
-  if (config.env === 'development') {
+  if (env === 'development') {
     app.use(logger);
   }
 
@@ -65,11 +65,11 @@ function setHeaders (req, res, next) {
 }
 
 /* istanbul ignore next */
-function errorHandler (error, req, res, next) { // eslint-disable-line no-used-vars
+function errorHandler (error, req, res, next) { // eslint-disable-line no-unused-vars
   return res.status(error.status)
     .json({
       message: (error.isPublic) ? error.message : httpStatus[error.status],
-      stack: (config.env === 'development') ? error.stack : {},
+      stack: (env === 'development') ? error.stack : {},
     });
 }
 

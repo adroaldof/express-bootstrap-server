@@ -1,7 +1,7 @@
-import config from '../../config/env';
+import { env } from '../../config';
 
 export function logger (message) {
-  if (config.env !== 'test') {
+  if (env !== 'test') {
     console.log(message); // eslint-disable-line no-console
   }
 }

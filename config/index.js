@@ -1,4 +1,6 @@
 import path from 'path';
+import knex from 'knex';
+import config from './knex-config';
 
 /* istanbul ignore next */
 const env = process.env.NODE_ENV || 'development';
@@ -10,9 +12,11 @@ const app = {
   port: process.env.APP_PORT || 3000,
 };
 
+const queryBuilder = knex(config);
 
-export default {
+export {
   app,
   env,
+  queryBuilder,
   root,
 };

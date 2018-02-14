@@ -1,10 +1,10 @@
-import knex from '../../config/knex';
+import { queryBuilder } from '../../config';
 
 
 export default async function remove (table, where) {
   let affectedRows;
 
-  const query = knex(table)
+  const query = queryBuilder(table)
     .where(where)
     .del();
 

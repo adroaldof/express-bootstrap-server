@@ -1,12 +1,12 @@
-import knex from '../../config/knex';
+import { queryBuilder } from '../../config';
 
 
 export default async function update (table, id, data) {
-  await knex(table)
+  await queryBuilder(table)
     .update(data)
     .where({ id });
 
-  const query = await knex(table)
+  const query = await queryBuilder(table)
     .where({ id })
     .first();
 

@@ -1,34 +1,31 @@
 import express from 'express';
 
-import config from '../config/env';
 import initExpress from './express';
+import { app, env, root } from '../config';
 
-
-const app = express();
+const { host, port } = app;
+const server = express();
 
 /**
  * Set express app variables
  */
-app.set('root', config.root);
-app.set('env', config.env);
-app.set('config', config);
+server.set('root', root);
+server.set('env', env);
 
 /**
  * Start system modules
  */
-initExpress(app);
+initExpress(server);
 
 /**
  * Start app
  */
 /* istanbul ignore next */
 if (!module.parent) {
-  const { app: { host, port }, env } = config;
-
-  app.listen(port, () => {
+  server.listen(port, () => {
     console.info(`Server started on port ${host}:${port} (${env})`);
   });
 }
 
 
-export default app;
+export default server;
