@@ -10,10 +10,10 @@ const config = {
   },
   migrations: {
     tableName: 'migrations',
-    directory: '../db/migrations',
+    directory: './db/migrations',
   },
   seeds: {
-    directory: '../db/seeds',
+    directory: './db/seeds',
   },
   debug: false,
 };
