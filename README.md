@@ -82,10 +82,18 @@ npm start
 Here are some awesome tools that helped to build this project
 [Express](https://www.npmjs.com/package/express),
 [Babel](https://www.npmjs.com/package/babel-cli),
+[Supervisor](https://www.npmjs.com/package/supervisor),
 [Eslint](https://www.npmjs.com/package/eslint),
 [Supervisor](https://www.npmjs.com/package/supervisor),
 [Morgan](https://www.npmjs.com/package/morgan),
-[Winston](https://www.npmjs.com/package/winston)
+[Winston](https://www.npmjs.com/package/winston),
+[Mocha](https://www.npmjs.com/package/mocha),
+[Chai](https://www.npmjs.com/package/chai),
+[Joi](https://www.npmjs.com/package/joi),
+[Sinon](https://www.npmjs.com/package/sinon),
+[Istanbul](https://www.npmjs.com/package/istanbul),
+[GitLab CI](https://about.gitlab.com/gitlab-ci/),
+[AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 
 
 ---
