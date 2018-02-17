@@ -37,14 +37,12 @@ function init (app) {
   // Mount all api routes on /api path
   app.use('/api', routes);
 
-  // Request logger
   /* istanbul ignore next */
   if (env !== 'test') {
+    // Request info logger
     app.use(morgan('combined'));
-  }
-  // Enable content API logger when environment is development
-  /* istanbul ignore next */
-  if (env === 'development') {
+
+    // Request content logger
     app.use(logger);
   }
 
