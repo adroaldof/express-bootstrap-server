@@ -81,6 +81,8 @@ npm start
 
 Here are some awesome tools that helped to build this project
 [Express](https://www.npmjs.com/package/express),
+[PG](https://www.npmjs.com/package/pg),
+[Knex](https://www.npmjs.com/package/knex),
 [Babel](https://www.npmjs.com/package/babel-cli),
 [Supervisor](https://www.npmjs.com/package/supervisor),
 [Eslint](https://www.npmjs.com/package/eslint),
