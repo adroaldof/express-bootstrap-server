@@ -19,12 +19,12 @@ export async function migrate () {
     console.error('*** error', error);
   }
 
-  console.info('***** End Migration *****');
+  console.info('***** End Migration *******');
 }
 
 
 export async function seed () {
-  console.info('***** Start Seed *****');
+  console.info('**** Start Seed ****');
 
   try {
     let seeded;
@@ -35,10 +35,10 @@ export async function seed () {
       [seeded] = await connection.seed.run();
     }
 
-    console.info(`***** Seeded ${(seeded && seeded.length) || 0} files`);
+    console.info(`**** Seeded ${(seeded && seeded.length) || 0} files`);
   } catch (error) {
     console.error('*** error', error);
   }
 
-  console.info('***** End Seed *****');
+  console.info('**** End Seed ******');
 }
