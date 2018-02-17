@@ -23,7 +23,7 @@ initExpress(server);
 /* istanbul ignore next */
 if (!module.parent) {
   server.listen(port, () => {
-    console.info(`Server started on port ${host}:${port} (${env})`);
+    console.info(`Server started on port ${host}:${port} (${env}) - ${Date().toString()}`);
   });
 }
 
